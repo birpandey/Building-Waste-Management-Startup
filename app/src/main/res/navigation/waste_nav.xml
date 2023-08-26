@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/waste_nav"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.example.waste.Registration"
+        android:label="Registration" >
+        <action
+            android:id="@+id/action_registration_to_otpScreen"
+            app:destination="@id/otpScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpScreen"
+        android:name="com.example.waste.OtpScreen"
+        android:label="OtpScreen" >
+        <action
+            android:id="@+id/action_otpScreen_to_successActivity"
+            app:destination="@id/successActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/successActivity"
+        android:name="com.example.waste.SuccessActivity"
+        android:label="SuccessActivity" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.waste.Login"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_registration"
+            app:destination="@id/registration" />
+    </fragment>
+</navigation>
