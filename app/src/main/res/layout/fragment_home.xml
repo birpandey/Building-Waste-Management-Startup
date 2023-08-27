@@ -73,7 +73,8 @@
                 app:cardCornerRadius="20dp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintStart_toEndOf="@id/cv_ewaste"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="@id/cv_ewaste">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
