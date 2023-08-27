@@ -1,0 +1,10 @@
+<!-- rounded_upper_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Layer 1: Rounded background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E5ECE2" /> <!-- Background color -->
+            <corners android:topLeftRadius="50dp" android:topRightRadius="50dp" /> <!-- Rounded corners for the top -->
+        </shape>
+    </item>
+</layer-list>
