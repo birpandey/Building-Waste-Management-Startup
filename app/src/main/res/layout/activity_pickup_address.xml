@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
-            android:drawableLeft="@drawable/baseline_home_24"
+            android:drawableLeft="@drawable/baseline_adb_24"
             android:hint="Pickup Address"
             android:inputType="textPostalAddress"
             app:layout_constraintBottom_toBottomOf="parent"

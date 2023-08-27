@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context=".RatingActivity">
+    tools:context=".Review">
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/Skip"
         android:layout_width="wrap_content"
@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-
         android:text="@string/rating"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +57,7 @@
         android:hint="@string/feedback"
         app:layout_constraintEnd_toEndOf="parent"
         android:drawablePadding="10dp"
-        android:drawableLeft="@drawable/baseline_feedback_24"
+        android:drawableStart="@drawable/baseline_adb_24"
         android:textSize="20sp"
         android:maxLines="3"
         android:maxLength="200"

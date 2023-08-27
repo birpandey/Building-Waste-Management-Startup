@@ -11,4 +11,11 @@
     <string name="enter_your_otp">Enter your OTP</string>
     <string name="successful_placed_ordered">Successful Placed Ordered</string>
     <string name="verify_otp">Verify OTP</string>
+    <string name="profile">Profile</string>
+    <string name="orders">Orders</string>
+    <string name="setting">Setting</string>
+    <string name="skip">Skip</string>
+    <string name="rating">Rating</string>
+    <string name="feedback">Feedback</string>
+    <string name="done">Done</string>
 </resources>
