@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/waste_nav"
-    app:startDestination="@id/login">
+    app:startDestination="@id/dashboard">
 
     <fragment
         android:id="@+id/registration"
@@ -32,4 +33,9 @@
             android:id="@+id/action_login_to_registration"
             app:destination="@id/registration" />
     </fragment>
+    <activity
+        android:id="@+id/dashboard"
+        android:name="com.example.waste.Dashboard"
+        android:label="activity_dashboard"
+        tools:layout="@layout/activity_dashboard" />
 </navigation>

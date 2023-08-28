@@ -18,4 +18,8 @@
     <string name="rating">Rating</string>
     <string name="feedback">Feedback</string>
     <string name="done">Done</string>
+    <string name="electronic_waste">Electronic Waste</string>
+    <string name="plastic_waste">Plastic Waste</string>
+    <string name="tyre_waste">Tyre Waste</string>
+    <string name="battery_waste">Battery Waste</string>
 </resources>
