@@ -22,4 +22,21 @@
     <string name="plastic_waste">Plastic Waste</string>
     <string name="tyre_waste">Tyre Waste</string>
     <string name="battery_waste">Battery Waste</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="address">Address</string>
+    <string name="about">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="support">Support</string>
+    <string name="pick_up_address">Pick up Address</string>
+    <string name="pickup_address">Pickup Address</string>
 </resources>
