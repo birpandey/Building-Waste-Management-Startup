@@ -39,4 +39,10 @@
     <string name="support">Support</string>
     <string name="pick_up_address">Pick up Address</string>
     <string name="pickup_address">Pickup Address</string>
+    <string name="next">Next</string>
+    <string name="pincode">Pincode</string>
+    <string name="landmark">Landmark</string>
+    <string name="area_sector_locality">Area / Sector / Locality</string>
+    <string name="flat_house_no_floor_building">Flat / House no / Floor / Building</string>
+    <string name="no_orders_found">No Orders Found</string>
 </resources>
