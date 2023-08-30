@@ -40,7 +40,12 @@ class Dashboard : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_orders, R.id.nav_address
+                R.id.nav_home,
+                R.id.nav_orders,
+                R.id.nav_address,
+                R.id.nav_support,
+                R.id.nav_about,
+                R.id.nav_rating
             ), drawerLayout
         )
 
@@ -49,6 +54,9 @@ class Dashboard : AppCompatActivity() {
                 R.id.nav_home -> navController.navigate(R.id.nav_home)
                 R.id.nav_orders -> navController.navigate(R.id.nav_orders)
                 R.id.nav_address -> navController.navigate(R.id.nav_address)
+                R.id.nav_support -> navController.navigate(R.id.nav_support)
+                R.id.nav_about -> navController.navigate(R.id.nav_about)
+                R.id.nav_rating -> navController.navigate(R.id.nav_rating)
                 // Add more cases for other menu items if needed
             }
             drawerLayout.closeDrawers() // Close the drawer after item click

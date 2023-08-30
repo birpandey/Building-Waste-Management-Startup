@@ -1,18 +1,52 @@
 package com.example.waste
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.waste.databinding.FragmentHomeBinding
 
 class Home : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val rootView = binding.root
+        initilize()
+
+
+        return rootView
     }
 
+    private fun initilize(){
+        binding.cvEwaste.setOnClickListener {
+            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            startActivity(intent)
+        }
+
+
+        binding.cvPlastic.setOnClickListener {
+            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            startActivity(intent)
+        }
+
+
+        binding.cvBattery.setOnClickListener {
+            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            startActivity(intent)
+        }
+
+
+        binding.cvTyre.setOnClickListener {
+            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            startActivity(intent)
+        }
+
+    }
 }

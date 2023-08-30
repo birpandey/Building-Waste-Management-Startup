@@ -21,4 +21,20 @@
         android:name="com.example.waste.Orders"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
+    <activity
+        android:id="@+id/nav_support"
+        android:name="com.example.waste.Support"
+        android:label="Support"
+        tools:layout="@layout/activity_support" />
+    <activity
+        android:id="@+id/nav_about"
+        android:name="com.example.waste.AboutUs"
+        android:label="About"
+        tools:layout="@layout/activity_about_us" />
+    <activity
+        android:id="@+id/nav_rating"
+        android:name="com.example.waste.Review"
+        android:label="@string/feedback"
+        tools:layout="@layout/activity_review" />
+
 </navigation>
