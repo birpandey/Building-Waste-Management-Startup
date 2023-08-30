@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">Waste</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="welcome">Welcome!</string>
+    <string name="proceed">Proceed</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="enter_your_otp">Enter your OTP</string>
+    <string name="successful_placed_ordered">Successful Placed Ordered</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="profile">Profile</string>
+    <string name="orders">Orders</string>
+    <string name="setting">Setting</string>
+    <string name="skip">Skip</string>
+    <string name="rating">Rating</string>
+    <string name="feedback">Feedback</string>
+    <string name="done">Done</string>
+    <string name="electronic_waste">Electronic Waste</string>
+    <string name="plastic_waste">Plastic Waste</string>
+    <string name="tyre_waste">Tyre Waste</string>
+    <string name="battery_waste">Battery Waste</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="address">Address</string>
+    <string name="about">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="support">Support</string>
+    <string name="pick_up_address">Pick up Address</string>
+    <string name="pickup_address">Pickup Address</string>
+    <string name="next">Next</string>
+    <string name="pincode">Pincode</string>
+    <string name="landmark">Landmark</string>
+    <string name="area_sector_locality">Area / Sector / Locality</string>
+    <string name="flat_house_no_floor_building">Flat / House no / Floor / Building</string>
+    <string name="no_orders_found">No Orders Found</string>
+    <string name="hi">Hi!</string>
+    <string name="how_can_we_help_you">How can we help you?</string>
 </resources>
