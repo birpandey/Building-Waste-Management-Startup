@@ -63,6 +63,22 @@
         android:maxLength="200"
         app:layout_constraintTop_toBottomOf="@id/ratingBar"
         app:layout_constraintStart_toStartOf="@id/rating" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="56dp"
+        android:drawablePadding="10dp"
+        android:text="देख देख देख यहाँ वहाँ ना फेंक गाड़ी वाला आया घर से कचरा निकाल"
+        android:maxLength="200"
+        android:textAlignment="center"
+        android:maxLines="3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="@id/feedback"
+        app:layout_constraintTop_toBottomOf="@id/feedback" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submit"
@@ -70,6 +86,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/done"
+        android:background="@drawable/btn_stroke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
