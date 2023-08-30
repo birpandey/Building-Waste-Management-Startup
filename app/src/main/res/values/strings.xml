@@ -45,4 +45,6 @@
     <string name="area_sector_locality">Area / Sector / Locality</string>
     <string name="flat_house_no_floor_building">Flat / House no / Floor / Building</string>
     <string name="no_orders_found">No Orders Found</string>
+    <string name="hi">Hi!</string>
+    <string name="how_can_we_help_you">How can we help you?</string>
 </resources>
