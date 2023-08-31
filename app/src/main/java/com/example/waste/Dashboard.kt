@@ -49,7 +49,7 @@ class Dashboard : AppCompatActivity() {
             ), drawerLayout
         )
 
-        navView.setNavigationItemSelectedListener { menuItem ->
+       /* navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> navController.navigate(R.id.nav_home)
                 R.id.nav_orders -> navController.navigate(R.id.nav_orders)
@@ -61,7 +61,7 @@ class Dashboard : AppCompatActivity() {
             }
             drawerLayout.closeDrawers() // Close the drawer after item click
             true
-        }
+        }*/
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

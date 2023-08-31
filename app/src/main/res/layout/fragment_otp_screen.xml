@@ -99,13 +99,13 @@
                 tools:text="4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+<!--        android:onClick="@{() -> otpViewModel.verifyOtp()}"-->
         <Button
             android:id="@+id/btn_proceed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:onClick="@{() -> otpViewModel.verifyOtp()}"
+
             android:text="@string/verify_otp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

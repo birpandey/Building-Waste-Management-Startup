@@ -24,7 +24,6 @@ class Home : Fragment() {
         initilize()
         bannerWebView()
 
-
         return rootView
     }
 
@@ -54,10 +53,11 @@ class Home : Fragment() {
 
     }
 
-    private fun bannerWebView() {
-        val imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOZsOIBTyNND54nzK7qntwTYvOXjSz-m4yg&usqp=CAU"
-        Glide.with(requireContext()) // Use the appropriate context
-            .load(imageUrl)
-            .into(binding.imageView)
+    private fun bannerWebView(){
+        val imageurl: ImageView = binding.imageView
+
+        val url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOZsOIBTyNND54nzK7qntwTYvOXjSz-m4yg&usqp=CAU"
+        Glide.with(this).load(url).into(imageurl)
+
     }
 }
