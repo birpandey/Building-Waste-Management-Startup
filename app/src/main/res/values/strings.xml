@@ -8,7 +8,7 @@
     <string name="email">Email</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
-    <string name="enter_your_otp">Enter your OTP</string>
+    <string name="enter_your_otp">Enter OTP</string>
     <string name="successful_placed_ordered">Successful Placed Ordered</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="profile">Profile</string>
