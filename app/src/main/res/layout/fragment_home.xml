@@ -28,7 +28,7 @@
             android:id="@+id/roundedLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="88dp"
             android:background="@drawable/rounded_shape">
 
             <ImageView
