@@ -75,7 +75,7 @@
             android:id="@+id/tl_landmark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/_25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_area">
 
@@ -97,7 +97,7 @@
             android:id="@+id/tl_pin_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/_25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_landmark">
 
@@ -122,10 +122,11 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="@drawable/btn_stroke"
-            android:text="@string/proceed"
+            android:text="@string/add_address"
             android:textSize="14sp"
             android:textStyle="bold"
             android:elevation="10dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
