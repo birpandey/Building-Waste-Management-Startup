@@ -29,25 +29,25 @@ class Home : Fragment() {
 
     private fun initilize(){
         binding.cvEwaste.setOnClickListener {
-            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            val intent = Intent(requireContext(), SuccessActivity::class.java)
             startActivity(intent)
         }
 
 
         binding.cvPlastic.setOnClickListener {
-            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            val intent = Intent(requireContext(), SuccessActivity::class.java)
             startActivity(intent)
         }
 
 
         binding.cvBattery.setOnClickListener {
-            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            val intent = Intent(requireContext(), SuccessActivity::class.java)
             startActivity(intent)
         }
 
 
         binding.cvTyre.setOnClickListener {
-            val intent = Intent(requireContext(), EwasteItemList::class.java)
+            val intent = Intent(requireContext(), SuccessActivity::class.java)
             startActivity(intent)
         }
 
