@@ -11,14 +11,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/green_gradient"
         android:orientation="vertical">
-      <!--  <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:visibility="gone"
-            android:background="@drawable/baseline_dehaze_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
