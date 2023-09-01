@@ -6,19 +6,19 @@
     android:id="@+id/navigation_graph">
     <fragment
         android:id="@+id/home"
-        android:name="com.example.waste.Home"
+        android:name="com.example.waste.fragments.Home"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/message"
-        android:name="com.example.waste.Orders"
+        android:name="com.example.waste.fragments.Orders"
         android:label="Message"
         tools:layout="@layout/fragment_orders" />
 
     <fragment
         android:id="@+id/settings"
-        android:name="com.example.waste.Profile"
+        android:name="com.example.waste.fragments.Profile"
         android:label="Setting"
         tools:layout="@layout/fragment_profile" />
 </navigation>

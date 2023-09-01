@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_margin="1dp"
         android:background="@drawable/green_gradient"
-        tools:context=".Registration">
+        tools:context=".fragments.Registration">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

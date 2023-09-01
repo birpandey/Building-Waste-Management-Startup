@@ -1,4 +1,4 @@
-package com.example.waste
+package com.example.waste.activity
 
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.waste.databinding.ActivityDashboardBinding
 import androidx.appcompat.app.ActionBarDrawerToggle
+import com.example.waste.R
 
 class Dashboard : AppCompatActivity() {
 

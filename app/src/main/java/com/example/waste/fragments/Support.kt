@@ -1,10 +1,12 @@
-package com.example.waste
+package com.example.waste.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.waste.R
+
 class Support : Fragment() {
 
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/registration"
-        android:name="com.example.waste.Registration"
+        android:name="com.example.waste.fragments.Registration"
         android:label="Registration" >
         <action
             android:id="@+id/action_registration_to_otpScreen"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/otpScreen"
-        android:name="com.example.waste.OtpScreen"
+        android:name="com.example.waste.fragments.OtpScreen"
         android:label="OtpScreen" >
         <action
             android:id="@+id/action_otpScreen_to_successActivity"
@@ -23,11 +23,11 @@
     </fragment>
     <activity
         android:id="@+id/successActivity"
-        android:name="com.example.waste.SuccessActivity"
+        android:name="com.example.waste.activity.SuccessActivity"
         android:label="SuccessActivity" />
     <fragment
         android:id="@+id/login"
-        android:name="com.example.waste.Login"
+        android:name="com.example.waste.activity.Login"
         android:label="Login" >
         <action
             android:id="@+id/action_login_to_registration"
@@ -35,7 +35,7 @@
     </fragment>
     <activity
         android:id="@+id/dashboard"
-        android:name="com.example.waste.Dashboard"
+        android:name="com.example.waste.activity.Dashboard"
         android:label="activity_dashboard"
         tools:layout="@layout/activity_dashboard" />
 </navigation>

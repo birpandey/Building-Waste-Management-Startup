@@ -20,10 +20,10 @@
             android:name=".AboutUs"
             android:exported="false" />
         <activity
-            android:name=".Support"
+            android:name=".fragments.Support"
             android:exported="false" />
         <activity
-            android:name=".Dashboard"
+            android:name=".activity.Dashboard"
             android:exported="true"
             android:label="@string/title_activity_main2">
             <intent-filter>
@@ -39,10 +39,10 @@
             android:name=".PickupAddress"
             android:exported="false" />
         <activity
-            android:name=".SuccessActivity"
+            android:name=".activity.SuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
            <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

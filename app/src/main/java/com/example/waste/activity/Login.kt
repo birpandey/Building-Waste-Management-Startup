@@ -1,4 +1,4 @@
-package com.example.waste
+package com.example.waste.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
+import com.example.waste.R
 import com.example.waste.databinding.FragmentLoginBinding
 
 class Login : Fragment(){

@@ -1,12 +1,13 @@
-package com.example.waste
+package com.example.waste.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import com.example.waste.R
 import com.example.waste.databinding.FragmentRegistrationBinding
 
 class Registration : Fragment() {
@@ -20,7 +21,7 @@ class Registration : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_registration, container, false)
 
         binding.btnProceed.setOnClickListener { view ->
-            findNavController(view).navigate(R.id.otpScreen)
+            Navigation.findNavController(view).navigate(R.id.otpScreen)
         }
         return binding.root
 
