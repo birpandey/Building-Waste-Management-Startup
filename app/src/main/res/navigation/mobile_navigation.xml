@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/nav_support"
         android:name="com.example.waste.fragments.Support"
-        android:label="Support"
+        android:label="Customer Support"
         tools:layout="@layout/fragment_support" />
     <fragment
         android:id="@+id/nav_about"
