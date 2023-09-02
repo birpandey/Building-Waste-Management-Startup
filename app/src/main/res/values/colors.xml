@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primaryColor">#1D976C</color>
+    <color name="pin_background">#eaeef4</color>
 </resources>
