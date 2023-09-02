@@ -4,13 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.MutableLiveData
 
 class OtpViewModel : ViewModel() {
-    val otpDigit1 = MutableLiveData<String>()
-    val otpDigit2 = MutableLiveData<String>()
-    val otpDigit3 = MutableLiveData<String>()
-    val otpDigit4 = MutableLiveData<String>()
+    val otpDigits = MutableLiveData<String>()
 
-    val enteredOtp = "${otpDigit1.value}${otpDigit2.value}${otpDigit3.value}${otpDigit4.value}"
     fun verifyOtp(): Boolean {
+        val enteredOtp = "${otpDigits.value}"
         return isValidOtp(enteredOtp)
     }
 
