@@ -51,10 +51,6 @@ class OtpScreen : Fragment() {
                 // Handle the case of an invalid OTP
             }
         }
-        binding.t1ChangeNo.setOnClickListener{
-            val intent = Intent(requireContext(), Login::class.java)
-            startActivity(intent)
-        }
     }
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
