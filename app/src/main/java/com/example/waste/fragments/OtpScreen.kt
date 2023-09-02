@@ -35,23 +35,24 @@ class OtpScreen : Fragment() {
         return binding.root
     }
 
-    private fun proceed(){
+    private fun proceed() {
         binding.btnProceed.setOnClickListener {
-            val otpViewModel = binding.otpViewModel as OtpViewModel
-            val isOtpValid = otpViewModel.verifyOtp()
-
-            if (isOtpValid) {
-                //showToast("OTP is valid")
-                // Proceed with the next steps in your app Start the Dashboard activity
-                val intent = Intent(requireContext(), Dashboard::class.java)
-                startActivity(intent)
-                activity?.finish()
-            } else {
-                showToast("Invalid OTP. Please try again.")
-                // Handle the case of an invalid OTP
-            }
+//            val otpViewModel = binding.otpViewModel as OtpViewModel
+//            val isOtpValid = otpViewModel.verifyOtp()
+            val otp = binding.pinView.text.toString()
+                if (otp == "1234") {
+                    //showToast("OTP is valid")
+                    // Proceed with the next steps in your app Start the Dashboard activity
+                    val intent = Intent(requireContext(), Dashboard::class.java)
+                    startActivity(intent)
+                    activity?.finish()
+                } else {
+                    showToast("Invalid OTP. Please try again.")
+                    // Handle the case of an invalid OTP
+                }
         }
     }
+
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }

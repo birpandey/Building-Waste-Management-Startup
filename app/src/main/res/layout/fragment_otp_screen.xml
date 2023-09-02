@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="otpViewModel"
             type="com.example.waste.models.OtpViewModel" />
@@ -46,8 +45,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_enter_otp">
 
-<!--            app:hideLineWhenFilled="false"-->
-<!--            app:state_filled="false"-->
 
             <com.example.waste.pinutill.PinView
                 android:id="@+id/pin_view"
@@ -64,11 +61,10 @@
                 android:gravity="center"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
-                android:inputType="numberPassword"
+                android:inputType="number"
                 android:itemBackground="@drawable/bg_pin_item"
                 android:longClickable="false"
                 android:pointerIcon="no_drop"
-                android:text="@{otpViewModel.enteredOtp}"
                 android:textColor="@color/black"
                 app:itemCount="4"
                 app:itemRadius="8dp"
