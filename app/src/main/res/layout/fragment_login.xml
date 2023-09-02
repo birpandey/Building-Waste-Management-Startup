@@ -10,8 +10,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/green_gradient"
         tools:context=".fragments.Login">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            app:lottie_rawRes="@raw/login_lottie"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_marginTop="@dimen/_25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/welcome"
@@ -20,10 +31,10 @@
             android:text="@string/welcome"
             android:gravity="center"
             android:textSize="25sp"
-            android:layout_marginTop="@dimen/dimen_150dp"
+            android:layout_marginTop="@dimen/_25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/animationView" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tl_phone_number"

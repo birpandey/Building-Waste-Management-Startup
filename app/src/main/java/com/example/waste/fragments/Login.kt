@@ -10,6 +10,7 @@ import androidx.navigation.Navigation.findNavController
 import com.example.waste.R
 import com.example.waste.databinding.FragmentLoginBinding
 
+
 class Login : Fragment(){
     private lateinit var binding: FragmentLoginBinding
     private var phoneNumber: String = ""
