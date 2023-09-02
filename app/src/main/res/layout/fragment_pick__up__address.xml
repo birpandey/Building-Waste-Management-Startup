@@ -3,13 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
     tools:context=".fragments.PickUpAddress">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:background="@drawable/green_gradient"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -19,30 +16,38 @@
             android:text="@string/pick_up_address"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            app:liteMode="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tl_flat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="10dp"
             android:shadowRadius="20"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/welcome">
+            app:layout_constraintTop_toBottomOf="@id/mapView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_flat"
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
                 android:hint="@string/flat_house_no_floor_building"
                 android:inputType="textPostalAddress"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +58,7 @@
             android:id="@+id/tl_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_flat">
 
@@ -62,7 +67,6 @@
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
                 android:hint="@string/area_sector_locality"
                 android:inputType="textPostalAddress"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +79,7 @@
             android:id="@+id/tl_landmark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_25dp"
+            android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_area">
 
@@ -84,7 +88,6 @@
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
                 android:hint="@string/landmark"
                 android:inputType="textPostalAddress"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +100,8 @@
             android:id="@+id/tl_pin_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_25dp"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_landmark">
 
@@ -106,7 +110,6 @@
                 style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
                 android:hint="@string/pincode"
                 android:maxLength="6"
                 android:inputType="number"
@@ -117,17 +120,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_proceed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@drawable/btn_stroke"
+            android:layout_marginTop="20dp"
             android:text="@string/add_address"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:elevation="10dp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tl_pin_code" />

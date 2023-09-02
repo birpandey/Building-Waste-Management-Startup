@@ -7,27 +7,36 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.waste.R
 import com.example.waste.databinding.FragmentPickUpAddressBinding
 import com.example.waste.activity.SuccessActivity
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class PickUpAddress : Fragment() {
+class PickUpAddress : Fragment(), OnMapReadyCallback {
     private lateinit var binder: FragmentPickUpAddressBinding
+    private lateinit var googleMap: GoogleMap
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binder = FragmentPickUpAddressBinding.inflate(inflater, container, false)
         val rootView = binder.root
-
         initialize()
-
-
+        // Initialize the map fragment
+        val mapFragment = childFragmentManager.findFragmentById(R.id.mapView) as? SupportMapFragment
+        mapFragment?.getMapAsync(this)
         return rootView
     }
 
 
     private fun initialize() {
-        binder.btnNext.setOnClickListener {
+        binder.btnProceed.setOnClickListener {
             val flat = binder.etFlat.text.toString().trim()
             val area = binder.etArea.text.toString().trim()
             val landmark = binder.etLandmark.text.toString().trim()
@@ -43,5 +52,16 @@ class PickUpAddress : Fragment() {
                 startActivity(intent) // Start the Dashboard activity
             }
         }
+    }
+
+    override fun onMapReady(map: GoogleMap) {
+        googleMap = map
+
+        // Add a marker to a location (e.g., your office)
+        val officeLocation = LatLng(51.5074, -0.1278) // Replace with your location's coordinates
+        googleMap.addMarker(MarkerOptions().position(officeLocation).title("Office Location"))
+
+        // Move the camera to the marker's position
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(officeLocation, 15f))
     }
 }
