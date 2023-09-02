@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.app.thorww.R
+import com.example.waste.R
 
 class Profile : Fragment() {
     override fun onCreateView(

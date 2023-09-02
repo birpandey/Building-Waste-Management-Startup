@@ -3,8 +3,8 @@ package com.example.waste.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.app.thorww.R
-import com.app.thorww.databinding.ActivitySuccessBinding
+import com.example.waste.R
+import com.example.waste.databinding.ActivitySuccessBinding
 
 class SuccessActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySuccessBinding

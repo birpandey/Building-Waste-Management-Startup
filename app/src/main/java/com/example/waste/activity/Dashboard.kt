@@ -11,8 +11,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.app.thorww.R
-import com.app.thorww.databinding.ActivityDashboardBinding
+import com.example.waste.R
+import com.example.waste.databinding.ActivityDashboardBinding
 
 class Dashboard : AppCompatActivity() {
 
