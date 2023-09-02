@@ -44,8 +44,8 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 
-import com.nownow.android.R;
-import com.nownow.android.views.DefaultMovementMethod;
+import com.example.waste.R;
+
 
 public class PinView extends AppCompatEditText {
 
@@ -140,7 +140,7 @@ public class PinView extends AppCompatEditText {
         mCursorColor = a.getColor(R.styleable.PinView_cursorColor, getCurrentTextColor());
         mCursorWidth = a.getDimensionPixelSize(R.styleable.PinView_cursorWidth,
                 res.getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width));
-        mItemBackground = a.getDrawable(R.styleable.PinView_android_itemBackground);
+       // mItemBackground = a.getDrawable(R.styleable.PinView_android_itemBackground);
         a.recycle();
 
         if (mLineColor != null) {
@@ -598,7 +598,8 @@ public class PinView extends AppCompatEditText {
 
     @Override
     protected MovementMethod getDefaultMovementMethod() {
-        return DefaultMovementMethod.getInstance();
+//        return DefaultMovementMethod.getInstance();
+        return null;
     }
 
     /**
