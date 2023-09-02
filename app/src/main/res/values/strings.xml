@@ -57,4 +57,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="add_address">Add Address</string>
     <string name="change_phone_number">Change Number</string>
+    <string name="price">Price:700</string>
+    <string name="washing_machine">Washing Machine</string>
 </resources>
