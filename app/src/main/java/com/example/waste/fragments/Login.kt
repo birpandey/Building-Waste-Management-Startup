@@ -1,4 +1,4 @@
-package com.example.waste.activity
+package com.example.waste.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
