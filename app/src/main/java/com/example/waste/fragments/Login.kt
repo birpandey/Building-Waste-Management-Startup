@@ -37,7 +37,7 @@ class Login : Fragment(){
                     Toast.LENGTH_SHORT).show()
             } else {
                 when (phoneNumber) {
-                    "8340483779", "7979079192" -> {
+                    "8340483779", "7979079192", "8299839817" -> {
                         // Navigate to otpScreen for any of the valid phone numbers
                         findNavController(view).navigate(R.id.otpScreen)
                     }
