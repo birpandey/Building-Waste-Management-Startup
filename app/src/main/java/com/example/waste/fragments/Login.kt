@@ -27,8 +27,7 @@ class Login : Fragment(){
         return rootView
     }
 
-    private fun initialize(){
-
+    private fun initialize() {
         binding?.btnProceed?.setOnClickListener { view ->
             val phoneNumber = binding?.etPhoneNumber?.text?.toString()?.trim()
 
@@ -37,14 +36,18 @@ class Login : Fragment(){
                 Toast.makeText(requireContext(), "Please enter a valid 10-digit phone number",
                     Toast.LENGTH_SHORT).show()
             } else {
-                if (phoneNumber == "8340483779" || phoneNumber == "8299839817")  {
-                    findNavController(view).navigate(R.id.otpScreen)
-                } else {
-                    findNavController(view).navigate(R.id.registration)
+                when (phoneNumber) {
+                    "8340483779", "7979079192", "8299839817" -> {
+                        // Navigate to otpScreen for any of the valid phone numbers
+                        findNavController(view).navigate(R.id.otpScreen)
+                    }
+                    else -> {
+                        // Navigate to registration for any other phone numbers
+                        findNavController(view).navigate(R.id.registration)
+                    }
                 }
             }
         }
-
-
     }
+
 }
