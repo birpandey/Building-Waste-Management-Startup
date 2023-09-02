@@ -30,7 +30,7 @@ class Feedback : Fragment() {
     }
     private fun feedback(){
         val feedback= binding.feedback.text.toString()
-        binding.submit.setOnClickListener {
+        binding.btnProceed.setOnClickListener {
             val intent = Intent(requireContext(), SuccessActivity::class.java)
             startActivity(intent) // Start SecondActivity
         }
