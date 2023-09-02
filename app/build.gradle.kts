@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.app.thorww"
+    namespace = "com.example.waste"
     compileSdk = 34
 
     defaultConfig {
@@ -58,6 +58,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("com.airbnb.android:lottie:3.4.0")
+    implementation ("com.airbnb.android:lottie:3.4.2")
+
 
 }
