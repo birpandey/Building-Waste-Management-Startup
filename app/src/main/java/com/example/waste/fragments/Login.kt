@@ -31,10 +31,9 @@ class Login : Fragment(){
         binding?.btnProceed?.setOnClickListener { view ->
             val phoneNumber = binding?.etPhoneNumber?.text?.toString()?.trim()
 
-            if (phoneNumber.isNullOrEmpty()) {
-                // Handle the case where phoneNumber is empty or null (e.g., show an error message)
-
-                Toast.makeText(requireContext(), "Please enter a valid phone number",
+            if (phoneNumber.isNullOrEmpty() || phoneNumber.length != 10) {
+                // Handle the case where phoneNumber is empty, null, or not 10 digits long
+                Toast.makeText(requireContext(), "Please enter a valid 10-digit phone number",
                     Toast.LENGTH_SHORT).show()
             } else {
                 if (phoneNumber == "8340483779") {
