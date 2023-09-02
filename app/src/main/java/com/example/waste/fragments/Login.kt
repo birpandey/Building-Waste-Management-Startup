@@ -37,7 +37,7 @@ class Login : Fragment(){
                 Toast.makeText(requireContext(), "Please enter a valid 10-digit phone number",
                     Toast.LENGTH_SHORT).show()
             } else {
-                if (phoneNumber == "8340483779") {
+                if (phoneNumber == "8340483779" || phoneNumber == "8299839817")  {
                     findNavController(view).navigate(R.id.otpScreen)
                 } else {
                     findNavController(view).navigate(R.id.registration)

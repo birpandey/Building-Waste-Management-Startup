@@ -66,10 +66,11 @@ class OtpScreen : Fragment() {
             val isOtpValid = otpViewModel.verifyOtp()
 
             if (isOtpValid) {
-                showToast("OTP is valid")
+                //showToast("OTP is valid")
                 // Proceed with the next steps in your app Start the Dashboard activity
                 val intent = Intent(requireContext(), Dashboard::class.java)
                 startActivity(intent)
+                activity?.finish()
             } else {
                 showToast("Invalid OTP. Please try again.")
                 // Handle the case of an invalid OTP
