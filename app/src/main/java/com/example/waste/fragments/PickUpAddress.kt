@@ -7,11 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.waste.R
-import com.example.waste.activity.Dashboard
+import com.app.thorww.databinding.FragmentPickUpAddressBinding
 import com.example.waste.activity.SuccessActivity
-import com.example.waste.databinding.FragmentFeedbackBinding
-import com.example.waste.databinding.FragmentPickUpAddressBinding
 
 class PickUpAddress : Fragment() {
     private lateinit var binder: FragmentPickUpAddressBinding

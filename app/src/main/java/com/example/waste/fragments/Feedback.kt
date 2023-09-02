@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.app.thorww.databinding.FragmentFeedbackBinding
 import com.example.waste.activity.SuccessActivity
-import com.example.waste.databinding.FragmentFeedbackBinding
 
 class Feedback : Fragment() {
     private lateinit var binding: FragmentFeedbackBinding

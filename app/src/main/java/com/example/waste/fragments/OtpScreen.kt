@@ -11,10 +11,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.waste.R
+import com.app.thorww.R
+import com.app.thorww.databinding.FragmentOtpScreenBinding
 import com.example.waste.activity.Dashboard
-import com.example.waste.activity.SuccessActivity
-import com.example.waste.databinding.FragmentOtpScreenBinding
 import com.example.waste.models.OtpViewModel
 
 class OtpScreen : Fragment() {
