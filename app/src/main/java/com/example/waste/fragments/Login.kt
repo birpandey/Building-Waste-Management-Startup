@@ -1,4 +1,4 @@
-package com.example.waste.activity
+package com.example.waste.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.example.waste.R
 import com.example.waste.databinding.FragmentLoginBinding
+
 
 class Login : Fragment(){
     private lateinit var binding: FragmentLoginBinding
@@ -26,25 +27,27 @@ class Login : Fragment(){
         return rootView
     }
 
-    private fun initialize(){
-
+    private fun initialize() {
         binding?.btnProceed?.setOnClickListener { view ->
             val phoneNumber = binding?.etPhoneNumber?.text?.toString()?.trim()
 
-            if (phoneNumber.isNullOrEmpty()) {
-                // Handle the case where phoneNumber is empty or null (e.g., show an error message)
-
-                Toast.makeText(requireContext(), "Please enter a valid phone number",
+            if (phoneNumber.isNullOrEmpty() || phoneNumber.length != 10) {
+                // Handle the case where phoneNumber is empty, null, or not 10 digits long
+                Toast.makeText(requireContext(), "Please enter a valid 10-digit phone number",
                     Toast.LENGTH_SHORT).show()
             } else {
-                if (phoneNumber == "8340483779") {
-                    findNavController(view).navigate(R.id.otpScreen)
-                } else {
-                    findNavController(view).navigate(R.id.registration)
+                when (phoneNumber) {
+                    "8340483779", "7979079192", "8299839817" -> {
+                        // Navigate to otpScreen for any of the valid phone numbers
+                        findNavController(view).navigate(R.id.otpScreen)
+                    }
+                    else -> {
+                        // Navigate to registration for any other phone numbers
+                        findNavController(view).navigate(R.id.registration)
+                    }
                 }
             }
         }
-
-
     }
+
 }
