@@ -7,18 +7,34 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.waste.Home"
+        android:name="com.example.waste.fragments.Home"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
-    <activity
+    <fragment
         android:id="@+id/nav_address"
-        android:name="com.example.waste.PickupAddress"
+        android:name="com.example.waste.fragments.PickUpAddress"
         android:label="activity_pickup_address"
-        tools:layout="@layout/activity_pickup_address" />
+        tools:layout="@layout/fragment_pick__up__address" />
     <fragment
         android:id="@+id/nav_orders"
-        android:name="com.example.waste.Orders"
+        android:name="com.example.waste.fragments.Orders"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/nav_support"
+        android:name="com.example.waste.fragments.Support"
+        android:label="Customer Support"
+        tools:layout="@layout/fragment_support" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.waste.fragments.About"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_rating"
+        android:name="com.example.waste.fragments.Feedback"
+        android:label="@string/feedback"
+        tools:layout="@layout/fragment_feedback" />
+
 </navigation>

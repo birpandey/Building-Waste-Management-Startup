@@ -1,15 +1,19 @@
-package com.example.waste
+package com.example.waste.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.waste.R
+import com.example.waste.activity.Dashboard
+import com.example.waste.activity.SuccessActivity
 import com.example.waste.databinding.FragmentOtpScreenBinding
 import com.example.waste.models.OtpViewModel
 
@@ -64,7 +68,9 @@ class OtpScreen : Fragment() {
 
             if (isOtpValid) {
                 showToast("OTP is valid")
-                // Proceed with the next steps in your app
+                // Proceed with the next steps in your app Start the Dashboard activity
+                val intent = Intent(requireContext(), Dashboard::class.java)
+                startActivity(intent)
             } else {
                 showToast("Invalid OTP. Please try again.")
                 // Handle the case of an invalid OTP
