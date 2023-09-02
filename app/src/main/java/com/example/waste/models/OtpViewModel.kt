@@ -9,9 +9,8 @@ class OtpViewModel : ViewModel() {
     val otpDigit3 = MutableLiveData<String>()
     val otpDigit4 = MutableLiveData<String>()
 
-
+    val enteredOtp = "${otpDigit1.value}${otpDigit2.value}${otpDigit3.value}${otpDigit4.value}"
     fun verifyOtp(): Boolean {
-        val enteredOtp = "${otpDigit1.value}${otpDigit2.value}${otpDigit3.value}${otpDigit4.value}"
         return isValidOtp(enteredOtp)
     }
 
