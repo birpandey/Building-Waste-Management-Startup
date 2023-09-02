@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.waste"
+    namespace = "com.app.thorww"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.waste"
+        applicationId = "com.app.thorww"
         minSdk = 23
         targetSdk = 33
         versionCode = 1
