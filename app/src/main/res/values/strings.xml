@@ -56,5 +56,5 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="add_address">Add Address</string>
-    <string name="change_phone_number">Change Phone Number</string>
+    <string name="change_phone_number">Change Number</string>
 </resources>

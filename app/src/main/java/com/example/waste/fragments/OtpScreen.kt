@@ -12,8 +12,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.waste.R
+import com.example.waste.activity.SuccessActivity
 import com.example.waste.databinding.FragmentOtpScreenBinding
-import com.example.waste.activity.Dashboard
 import com.example.waste.models.OtpViewModel
 
 class OtpScreen : Fragment() {
@@ -34,21 +34,23 @@ class OtpScreen : Fragment() {
 
         return binding.root
     }
-
     private fun proceed(){
+
         binding.btnProceed.setOnClickListener {
             val otpViewModel = binding.otpViewModel as OtpViewModel
             val isOtpValid = otpViewModel.verifyOtp()
 
             if (isOtpValid) {
                 showToast("OTP is valid")
-                // Proceed with the next steps in your app Start the Dashboard activity
-                val intent = Intent(requireContext(), Dashboard::class.java)
-                startActivity(intent)
+                // Proceed with the next steps in your app
             } else {
                 showToast("Invalid OTP. Please try again.")
                 // Handle the case of an invalid OTP
             }
+        }
+        binding.t1ChangeNo.setOnClickListener{
+            val intent = Intent(requireContext(), Login::class.java)
+            startActivity(intent)
         }
     }
     private fun showToast(message: String) {
