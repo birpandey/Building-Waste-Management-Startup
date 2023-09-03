@@ -1,0 +1,49 @@
+package com.example.waste.utility
+
+import android.os.Looper
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+
+
+class NetworkStateManager private constructor() {
+    /**
+     * Updates the active network status live-data
+     */
+    fun setNetworkConnectivityStatus(connectivityStatus: Boolean) {
+        Log.d(
+            TAG,
+            "setNetworkConnectivityStatus() called with: connectivityStatus = [$connectivityStatus]"
+        )
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            activeNetworkStatusMLD.setValue(connectivityStatus)
+        } else {
+            activeNetworkStatusMLD.postValue(connectivityStatus)
+        }
+    }
+
+    /**
+     * Returns the current network status
+     */
+    val networkConnectivityStatus: LiveData<Boolean>
+        get() {
+            Log.d(TAG, "getNetworkConnectivityStatus() called")
+            return activeNetworkStatusMLD
+        }
+
+    companion object {
+        val TAG: String = NetworkStateManager::class.java.getSimpleName()
+        private var INSTANCE: NetworkStateManager? = null
+        private val activeNetworkStatusMLD = MutableLiveData<Boolean>()
+
+        @get:kotlin.jvm.Synchronized
+        val instance: NetworkStateManager?
+            get() {
+                if (INSTANCE == null) {
+                    Log.d(TAG, "getInstance() called: Creating new instance")
+                    INSTANCE = NetworkStateManager()
+                }
+                return INSTANCE
+            }
+    }
+}
