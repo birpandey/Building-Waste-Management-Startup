@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -53,6 +54,7 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+    implementation ("com.google.android.gms:play-services-maps:18.0.0")//google map dependency
     implementation("androidx.annotation:annotation:1.6.0")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
