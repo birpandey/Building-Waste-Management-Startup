@@ -1,5 +1,6 @@
 package com.example.waste.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.navigation.NavigationView
@@ -11,33 +12,30 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.lifecycle.Observer
 import com.example.waste.R
 import com.example.waste.databinding.ActivityDashboardBinding
 import com.example.waste.databinding.NoInternetDialogBinding
 import com.example.waste.utility.NetworkConnection
+import com.example.waste.utility.NetworkStateManager
 
 class Dashboard : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var networkBinding: NoInternetDialogBinding
+    private val activeNetworkStateObserver =
+        Observer<Boolean> { isConnected ->  setView(isConnected) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         networkBinding = NoInternetDialogBinding.inflate(layoutInflater)
-        val networkConnection = NetworkConnection(applicationContext)
-        networkConnection.observe(this) { isConnected ->
-            if (!isConnected) {
-                // Display the network dialog when there is no internet connection
-                setContentView(networkBinding.root)
-            } else {
-                // Hide the network dialog and restore the main content
-                setContentView(binding.root)
-            }
-        }
-       // setContentView(binding.root)
+        setContentView(binding.root)
+        NetworkStateManager.instance?.networkConnectivityStatus
+            ?.observe(this, activeNetworkStateObserver)
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -67,6 +65,13 @@ class Dashboard : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    private fun setView(connected: Boolean) {
+        if(!connected){
+            val noNetworkIntent =  Intent(this, NetworkError::class.java)
+            startActivity(noNetworkIntent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
