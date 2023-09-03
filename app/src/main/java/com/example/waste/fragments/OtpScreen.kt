@@ -32,6 +32,8 @@ class OtpScreen : Fragment() {
         binding.otpViewModel = otpViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
+
+
         return binding.root
     }
 
@@ -51,6 +53,7 @@ class OtpScreen : Fragment() {
                     // Handle the case of an invalid OTP
                 }
         }
+
     }
 
     private fun showToast(message: String) {
