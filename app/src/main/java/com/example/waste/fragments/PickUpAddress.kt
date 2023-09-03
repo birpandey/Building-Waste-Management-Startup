@@ -33,8 +33,6 @@ class PickUpAddress : Fragment(), OnMapReadyCallback {
         mapFragment?.getMapAsync(this)
         return rootView
     }
-
-
     private fun initialize() {
         binder.btnProceed.setOnClickListener {
             val flat = binder.etFlat.text.toString().trim()

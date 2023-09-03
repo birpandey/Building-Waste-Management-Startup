@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
     </data>
 
     <FrameLayout
@@ -45,6 +44,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/first_name"
                     android:textStyle="bold"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +68,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/last_name"
                     android:textStyle="bold"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +92,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
                     android:textStyle="bold"
+                    android:maxLines="1"
+                    android:inputType="textEmailAddress"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +115,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/phone_number"
-                    android:inputType="number"
+                    android:inputType="phone"
+                    android:maxLines="1"
                     android:maxLength="10"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -125,7 +131,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:text="@string/proceed"
-                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tl_phone_number" />

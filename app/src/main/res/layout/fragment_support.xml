@@ -71,7 +71,7 @@
                 tools:ignore="MissingConstraints">
 
                 <LinearLayout
-                    android:id="@+id/clickemail"
+                    android:id="@+id/ll_click_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -80,7 +80,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:src="@drawable/baseline_email_24" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:src="@drawable/baseline_phone_forwarded_24" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -147,7 +147,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:gravity="end"
-                            android:text="678687698797"
+                            android:text="8340483779"
                             android:textSize="16sp" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -159,7 +159,6 @@
                     android:layout_marginRight="20dp"
                     android:background="@color/black"
                     android:visibility="gone" />
-
 
                 <View
                     android:layout_width="match_parent"
@@ -178,7 +177,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:src="@drawable/baseline_question_answer_24" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -215,7 +214,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_menu_camera" />
+                        app:srcCompat="@drawable/baseline_chat_24" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
