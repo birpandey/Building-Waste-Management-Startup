@@ -2,10 +2,6 @@ package com.example.waste.application
 
 import android.app.Application
 import com.example.waste.utility.NetworkMonitoringUtil
-
-
-
-
 class ThrowwApplication: Application() {
     var mNetworkMonitoringUtil: NetworkMonitoringUtil? = null
     override fun onCreate() {
@@ -17,6 +13,6 @@ class ThrowwApplication: Application() {
     }
 
     companion object {
-        val TAG: String = ThrowwApplication::class.java.getSimpleName()
+        val TAG: String = ThrowwApplication::class.java.simpleName
     }
 }

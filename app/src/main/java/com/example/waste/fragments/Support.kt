@@ -1,7 +1,6 @@
 package com.example.waste.fragments
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import com.example.waste.databinding.FragmentSupportBinding
 
 class Support : Fragment() {
     private lateinit var binding: FragmentSupportBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

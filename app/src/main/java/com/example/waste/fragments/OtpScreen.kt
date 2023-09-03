@@ -2,8 +2,6 @@ package com.example.waste.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.waste.R
-import com.example.waste.databinding.FragmentOtpScreenBinding
 import com.example.waste.activity.Dashboard
+import com.example.waste.databinding.FragmentOtpScreenBinding
 import com.example.waste.models.OtpViewModel
 
 class OtpScreen : Fragment() {
@@ -31,8 +29,6 @@ class OtpScreen : Fragment() {
         otpViewModel = ViewModelProvider(this@OtpScreen)[OtpViewModel::class.java]
         binding.otpViewModel = otpViewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
-
 
         return binding.root
     }

@@ -1,14 +1,13 @@
 package com.example.waste.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.waste.R
 import com.example.waste.databinding.ActivitySuccessBinding
 import com.example.waste.databinding.NoInternetDialogBinding
-import com.example.waste.utility.NetworkConnection
 import com.example.waste.utility.NetworkStateManager
 
 class SuccessActivity : AppCompatActivity() {
@@ -24,10 +23,7 @@ class SuccessActivity : AppCompatActivity() {
         setContentView(binding.root)
         NetworkStateManager.instance?.networkConnectivityStatus
             ?.observe(this, activeNetworkStateObserver)
-
     }
-
-
     private fun setView(connected: Boolean) {
         if(!connected){
             val noNetworkIntent =  Intent(this, NetworkError::class.java)

@@ -22,15 +22,11 @@ class NetworkError : AppCompatActivity()  {
         setContentView(binding.root)
 
     }
-
     override fun onResume() {
         super.onResume()
         NetworkStateManager.instance?.networkConnectivityStatus
             ?.observe(this, activeNetworkStateObserver)
     }
-
     override fun onBackPressed() {
-
     }
-
 }
