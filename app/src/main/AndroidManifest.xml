@@ -36,7 +36,9 @@
         <activity
             android:name=".activity.Dashboard"
             android:exported="false"
-            android:label="@string/title_activity_main2"></activity>
+            android:label="@string/title_activity_main2">
+
+        </activity>
         <activity
             android:name=".activity.SuccessActivity"
             android:exported="false">
