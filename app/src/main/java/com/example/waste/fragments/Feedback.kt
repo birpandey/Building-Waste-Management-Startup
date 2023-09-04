@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.waste.activity.Dashboard
 import com.example.waste.activity.SuccessActivity
 import com.example.waste.databinding.FragmentFeedbackBinding
 
@@ -31,7 +32,7 @@ class Feedback : Fragment() {
     private fun feedback(){
         val feedback= binding.feedback.text.toString()
         binding.btnProceed.setOnClickListener {
-            val intent = Intent(requireContext(), SuccessActivity::class.java)
+            val intent = Intent(requireContext(), Dashboard::class.java)
             startActivity(intent) // Start SecondActivity
         }
     }
@@ -45,7 +46,7 @@ class Feedback : Fragment() {
     }
     private fun skip(){
         binding.Skip.setOnClickListener{
-            val intent = Intent(requireContext(), SuccessActivity::class.java)
+            val intent = Intent(requireContext(), Dashboard::class.java)
             startActivity(intent) // Start SecondActivity
         }
     }

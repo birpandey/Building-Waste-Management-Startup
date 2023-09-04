@@ -35,9 +35,4 @@ class MainActivity : AppCompatActivity() {
             ?.observe(this, activeNetworkStateObserver)
     }
 
-
-
-
-
     }
-}

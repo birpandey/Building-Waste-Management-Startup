@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.waste.databinding.FragmentHomeBinding
 import com.bumptech.glide.Glide
-import com.example.waste.activity.SuccessActivity
+import com.example.waste.adapter.EwasteItems
 
 class Home : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -29,25 +29,25 @@ class Home : Fragment() {
 
     private fun initialize(){
         binding.cvEwaste.setOnClickListener {
-            val intent = Intent(requireContext(), SuccessActivity::class.java)
+            val intent = Intent(requireContext(), EwasteItems::class.java)
             startActivity(intent)
         }
 
 
         binding.cvPlastic.setOnClickListener {
-            val intent = Intent(requireContext(), SuccessActivity::class.java)
+            val intent = Intent(requireContext(), EwasteItems::class.java)
             startActivity(intent)
         }
 
 
         binding.cvBattery.setOnClickListener {
-            val intent = Intent(requireContext(), SuccessActivity::class.java)
+            val intent = Intent(requireContext(), EwasteItems::class.java)
             startActivity(intent)
         }
 
 
         binding.cvTyre.setOnClickListener {
-            val intent = Intent(requireContext(), SuccessActivity::class.java)
+            val intent = Intent(requireContext(), EwasteItems::class.java)
             startActivity(intent)
         }
 

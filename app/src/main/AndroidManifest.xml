@@ -38,6 +38,12 @@
             android:exported="false">
 
         </activity>
+
+        <activity
+            android:name="com.example.waste.adapter.EwasteItems"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".activity.SuccessActivity"
             android:exported="false">
