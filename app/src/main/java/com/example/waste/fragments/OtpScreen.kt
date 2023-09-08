@@ -13,8 +13,12 @@ import com.example.waste.R
 import com.example.waste.activity.Dashboard
 import com.example.waste.databinding.FragmentOtpScreenBinding
 import com.example.waste.models.OtpViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
 
 class OtpScreen : Fragment() {
+    private lateinit var phone: String
     private lateinit var binding: FragmentOtpScreenBinding
     private lateinit var otpViewModel: OtpViewModel
 
@@ -24,6 +28,7 @@ class OtpScreen : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_otp_screen, container, false)
+        phone = requireArguments().getString("phone").toString()
         proceed()
         // Initialize ViewModel
         otpViewModel = ViewModelProvider(this@OtpScreen)[OtpViewModel::class.java]
@@ -35,21 +40,31 @@ class OtpScreen : Fragment() {
 
     private fun proceed() {
         binding.btnProceed.setOnClickListener {
-//            val otpViewModel = binding.otpViewModel as OtpViewModel
-//            val isOtpValid = otpViewModel.verifyOtp()
-            val otp = binding.pinView.text.toString()
-                if (otp == "1234") {
-                    //showToast("OTP is valid")
-                    // Proceed with the next steps in your app Start the Dashboard activity
+            validateOTP()
+        }
+    }
+
+    private fun validateOTP() {
+        val phoneAuthCredential: PhoneAuthCredential = PhoneAuthProvider.getCredential(phone,binding.pinView.text.toString())
+        val auth = FirebaseAuth.getInstance()
+        auth.signInWithCredential(phoneAuthCredential)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    // User signed in successfully
                     val intent = Intent(requireContext(), Dashboard::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     activity?.finish()
                 } else {
-                    showToast("Invalid OTP. Please try again.")
-                    // Handle the case of an invalid OTP
-                }
-        }
+                    // Sign-in failed
+                    Toast.makeText(
+                        requireActivity(),
+                        "Please Enter Correct OTP",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
+                }
+            }
     }
 
     private fun showToast(message: String) {
