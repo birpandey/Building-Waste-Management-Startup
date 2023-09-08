@@ -17,17 +17,10 @@ class Feedback : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        val rootView = binding.root
-
-
         feedback()
         setupRating()
         skip()
-
-
-        return rootView
-
-
+        return binding.root
     }
     private fun feedback(){
         val feedback= binding.feedback.text.toString()
@@ -36,8 +29,6 @@ class Feedback : Fragment() {
             startActivity(intent) // Start SecondActivity
         }
     }
-
-
     // Rating Star Used
     private fun setupRating() {
         binding.ratingBar.setOnRatingBarChangeListener { _, rating, _ ->

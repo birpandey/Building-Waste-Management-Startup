@@ -35,15 +35,8 @@
         </activity>
         <activity
             android:name=".activity.Dashboard"
-            android:exported="false">
-
-        </activity>
-
-        <activity
-            android:name="com.example.waste.adapter.EwasteItems"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"
+            android:label="@string/title_activity_main2"></activity>
         <activity
             android:name=".activity.SuccessActivity"
             android:exported="false">

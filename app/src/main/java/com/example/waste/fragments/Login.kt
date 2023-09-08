@@ -9,16 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.example.waste.R
 import com.example.waste.databinding.FragmentLoginBinding
-
-
 class Login : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private var phoneNumber: String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-
-    ): View {
+        savedInstanceState: Bundle?): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         initialize()
 
@@ -28,7 +24,6 @@ class Login : Fragment() {
     private fun initialize() {
         binding?.btnProceed?.setOnClickListener { view ->
             val phoneNumber = binding?.etPhoneNumber?.text?.toString()?.trim()
-
             if (phoneNumber.isNullOrEmpty() || phoneNumber.length != 10) {
                 // Handle the case where phoneNumber is empty, null, or not 10 digits long
                 Toast.makeText(
@@ -50,5 +45,4 @@ class Login : Fragment() {
             }
         }
     }
-
 }

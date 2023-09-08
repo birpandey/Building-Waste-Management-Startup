@@ -17,19 +17,14 @@ class Registration : Fragment() {
     var mDialog: Dialog? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentRegistrationBinding.inflate(inflater, container, false)
-        val rootView = binding.root
-
-
         btnProceed()
 
-        return rootView
+        return binding.root
 
     }
-
     private fun initialize() {
         val firstName = binding.etFirstName.text.toString().trim()
         val lastName = binding.etLastName.text.toString().trim()
@@ -45,7 +40,6 @@ class Registration : Fragment() {
 //            view?.let { Navigation.findNavController(it).navigate(R.id.otpScreen) }
             showSuccessDialog()
         }
-
     }
 
     private fun btnProceed() {

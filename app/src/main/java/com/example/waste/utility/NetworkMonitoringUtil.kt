@@ -7,8 +7,6 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.util.Log
-import  com.example.waste.utility.NetworkStateManager
-
 
 class NetworkMonitoringUtil(context: Context) : NetworkCallback() {
     private val mNetworkRequest: NetworkRequest = NetworkRequest.Builder()
@@ -61,6 +59,6 @@ class NetworkMonitoringUtil(context: Context) : NetworkCallback() {
     }
 
     companion object {
-        val TAG: String = NetworkMonitoringUtil::class.java.getSimpleName()
+        val TAG: String = NetworkMonitoringUtil::class.java.simpleName
     }
 }

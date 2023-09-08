@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-
 class NetworkStateManager private constructor() {
     /**
      * Updates the active network status live-data
@@ -32,11 +31,11 @@ class NetworkStateManager private constructor() {
         }
 
     companion object {
-        val TAG: String = NetworkStateManager::class.java.getSimpleName()
+        val TAG: String = NetworkStateManager::class.java.simpleName
         private var INSTANCE: NetworkStateManager? = null
         private val activeNetworkStatusMLD = MutableLiveData<Boolean>()
 
-        @get:kotlin.jvm.Synchronized
+        @get:Synchronized
         val instance: NetworkStateManager?
             get() {
                 if (INSTANCE == null) {
