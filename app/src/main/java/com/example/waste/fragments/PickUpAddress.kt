@@ -29,7 +29,8 @@ class PickUpAddress : Fragment(), OnMapReadyCallback {
         val rootView = binder.root
         initialize()
         // Initialize the map fragment
-        val mapFragment = childFragmentManager.findFragmentById(R.id.mapView) as? SupportMapFragment
+//        val mapFragment = childFragmentManager.findFragmentById(R.id.mapView) as? SupportMapFragment
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
         return rootView
     }

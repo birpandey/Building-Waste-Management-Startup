@@ -66,6 +66,10 @@ class Dashboard : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
+            logout()
+            true
+        }
     }
 
     private fun setView(connected: Boolean) {
@@ -85,16 +89,17 @@ class Dashboard : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.nav_logout -> {
                 // Handle logout item click
                 logout()
-                return true
+                true
             }
             // Handle other menu items if needed
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
+
     private fun logout(){
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
