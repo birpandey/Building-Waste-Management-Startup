@@ -145,7 +145,7 @@ class Dashboard : AppCompatActivity() {
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private val permissionId = 2
 
-    @SuppressLint("MissingPermission", "SetTextI18n")
+    @SuppressLint("MissingPermission")
     private fun getLocation() {
         if (checkPermissions()) {
             if (isLocationEnabled()) {
