@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +14,11 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 import com.example.waste.R
 import com.example.waste.activity.Dashboard
+import com.example.waste.application.ThrowwApplication.Companion.TAG
 import com.example.waste.databinding.FragmentLoginBinding
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
@@ -53,14 +56,14 @@ class Login : Fragment() {
                 ).show()
             } else {
                 when (phoneNumber) {
-                    "8340483779", "7979079192", "8299839817","7325847536"-> {
+                    "8340483779", "7979079192", "8299839817","7325847536","8565842829"-> {
                         // Navigate to otpScreen for any of the valid phone numbers
 //                        otp bypass direct dashboard
                         val intent = Intent(requireContext(), Dashboard::class.java)
                         startActivity(intent)
                         activity?.finish()
 
-                        //sendOTP(view)
+//                        sendOTP(view)
                     }
 
                     else -> {
@@ -71,12 +74,18 @@ class Login : Fragment() {
             }
         }
     }
-
+private lateinit var auth: FirebaseAuth
     private fun sendOTP(view: View) {
         val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 // Automatically detected verification code
 //                signInWithPhoneAuthCredential(credential)
+                val bundle = Bundle()
+                bundle.putString("phone", binding.etPhoneNumber.text.toString())
+                val navController: NavController?
+                navController = findNavController(view)
+                sharedPrefLogin()
+                navController.navigate(R.id.otpScreen, bundle)
 
             }
 
@@ -100,7 +109,7 @@ class Login : Fragment() {
                 // You can send the verification code to the user via SMS, or use it for auto-retrieval
             }
         }
-        val auth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
         val phoneNumber =
             "+91" + binding.etPhoneNumber.text.toString()  // Replace with the user's phone number
         val options = PhoneAuthOptions.newBuilder(auth)
