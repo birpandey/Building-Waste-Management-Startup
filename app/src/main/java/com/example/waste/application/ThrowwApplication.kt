@@ -5,7 +5,7 @@ import com.example.waste.utility.NetworkMonitoringUtil
 import com.google.firebase.FirebaseApp
 
 class ThrowwApplication: Application() {
-    var mNetworkMonitoringUtil: NetworkMonitoringUtil? = null
+    private var mNetworkMonitoringUtil: NetworkMonitoringUtil? = null
     override fun onCreate() {
         super.onCreate()
 

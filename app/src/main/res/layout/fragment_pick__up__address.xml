@@ -9,12 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.fragment.app.FragmentContainerView
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:id="@+id/map"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="350dp"
             android:layout_height="250dp"
             app:liteMode="false"
+            android:visibility="gone"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +38,7 @@
             android:layout_margin="10dp"
             android:shadowRadius="20"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mapView">
+            app:layout_constraintTop_toBottomOf="@id/map">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_flat"

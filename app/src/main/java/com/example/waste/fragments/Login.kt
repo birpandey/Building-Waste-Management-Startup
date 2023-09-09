@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import com.example.waste.R
 import com.example.waste.activity.Dashboard
@@ -33,7 +32,7 @@ class Login : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         val sharedPreferences: SharedPreferences =
             requireContext().getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-        val getPhoneNumber = sharedPreferences.getString("phone_number", "")
+//        val getPhoneNumber = sharedPreferences.getString("phone_number", "")
 
         initialize()
 //        if (getPhoneNumber != "") {
@@ -56,8 +55,12 @@ class Login : Fragment() {
                 when (phoneNumber) {
                     "8340483779", "7979079192", "8299839817","7325847536"-> {
                         // Navigate to otpScreen for any of the valid phone numbers
+//                        otp bypass direct dashboard
+                        val intent = Intent(requireContext(), Dashboard::class.java)
+                        startActivity(intent)
+                        activity?.finish()
 
-                        sendOTP(view)
+                        //sendOTP(view)
                     }
 
                     else -> {

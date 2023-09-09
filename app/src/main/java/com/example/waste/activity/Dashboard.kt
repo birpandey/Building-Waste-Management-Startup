@@ -66,6 +66,10 @@ class Dashboard : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
+            logout()
+            true
+        }
     }
 
     private fun setView(connected: Boolean) {
@@ -95,6 +99,7 @@ class Dashboard : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
     private fun logout(){
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
