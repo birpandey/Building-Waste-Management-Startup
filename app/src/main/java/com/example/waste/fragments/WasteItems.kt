@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.waste.R
@@ -50,6 +51,10 @@ class WasteItems : Fragment() {
         // Set the RecyclerView's layout manager (e.g., LinearLayoutManager or GridLayoutManager)
         val layoutManager = LinearLayoutManager(requireContext())
         recyclerView.layoutManager = layoutManager
+
+
+        // Apply the default AndroidX DividerItemDecoration
+        recyclerView.addItemDecoration(DividerItemDecoration(requireActivity(), layoutManager.orientation))
 
         // Attach the adapter to the RecyclerView
 //        recyclerView.adapter = wasteItemsAdapter

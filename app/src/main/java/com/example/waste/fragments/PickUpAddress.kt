@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.waste.R
-import com.example.waste.databinding.FragmentPickUpAddressBinding
 import com.example.waste.activity.SuccessActivity
+import com.example.waste.databinding.FragmentPickUpAddressBinding
+import com.example.waste.utility.SharedPreference
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -18,9 +19,10 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class PickUpAddress : Fragment(), OnMapReadyCallback {
+    private lateinit var officeLocation: LatLng
     private lateinit var binder: FragmentPickUpAddressBinding
     private lateinit var googleMap: GoogleMap
-
+    private val sharedPrefUtils: SharedPreference = SharedPreference()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,11 +31,11 @@ class PickUpAddress : Fragment(), OnMapReadyCallback {
         val rootView = binder.root
         initialize()
         // Initialize the map fragment
-//        val mapFragment = childFragmentManager.findFragmentById(R.id.mapView) as? SupportMapFragment
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
         return rootView
     }
+
     private fun initialize() {
         binder.btnProceed.setOnClickListener {
             val flat = binder.etFlat.text.toString().trim()
@@ -42,13 +44,12 @@ class PickUpAddress : Fragment(), OnMapReadyCallback {
             val pinCode = binder.etPinCode.text.toString().trim()
 
             if (flat.isBlank() || area.isBlank() || landmark.isBlank() || pinCode.isBlank()) {
-
                 // Show an error message to the user indicating that all fields are required
                 Toast.makeText(requireContext(), "Please fill in all the fields",
                     Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(requireContext(), SuccessActivity::class.java)
-                startActivity(intent) // Start the Dashboard activity
+                startActivity(intent) // Start the SuccessActivity
             }
         }
     }
@@ -56,11 +57,14 @@ class PickUpAddress : Fragment(), OnMapReadyCallback {
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
 
-        // Add a marker to a location (e.g., your office)
-        val officeLocation = LatLng(51.5074, -0.1278) // Replace with your location's coordinates
-        googleMap.addMarker(MarkerOptions().position(officeLocation).title("Office Location"))
+            // Handle the latitude and longitude here
+            // You can use them to perform location-related tasks
+            // For example, display them on the UI or make API requests
+            officeLocation = LatLng(sharedPrefUtils.getUserLatitude(), sharedPrefUtils.getUserLongitude())
 
-        // Move the camera to the marker's position
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(officeLocation, 15f))
-    }
+            // Once officeLocation is initialized, you can use it here or in other methods.
+            // For example, you can add the marker and move the camera here.
+            googleMap.addMarker(MarkerOptions().position(officeLocation).title("Office Location"))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(officeLocation, 15f))
+        }
 }
