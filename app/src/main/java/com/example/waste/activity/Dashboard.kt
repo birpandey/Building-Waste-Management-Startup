@@ -1,5 +1,6 @@
 package com.example.waste.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -19,7 +20,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.waste.R
 import com.example.waste.databinding.ActivityDashboardBinding
 import com.example.waste.databinding.NoInternetDialogBinding
+import com.example.waste.utility.GetLocation
 import com.example.waste.utility.NetworkStateManager
+import com.example.waste.utility.SharedPreference
 import com.google.android.material.navigation.NavigationView
 
 class Dashboard : AppCompatActivity() {
@@ -29,6 +32,8 @@ class Dashboard : AppCompatActivity() {
     private lateinit var networkBinding: NoInternetDialogBinding
     private val activeNetworkStateObserver =
         Observer<Boolean> { isConnected ->  setView(isConnected) }
+    private var backButtonPressedTime = 0L
+    private var getLocation:GetLocation?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +45,8 @@ class Dashboard : AppCompatActivity() {
             ?.observe(this, activeNetworkStateObserver)
 
         setSupportActionBar(binding.appBarMain.toolbar)
-
+        getLocation= GetLocation.getInstance(this@Dashboard)
+        getLocation?.init()
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -114,4 +120,17 @@ class Dashboard : AppCompatActivity() {
         Toast.makeText(this,"You have been logged out",Toast.LENGTH_SHORT).show()
 
     }
+    override fun onBackPressed() {
+        val currentTime = System.currentTimeMillis()
+
+        if (currentTime - backButtonPressedTime < 2000) {
+            // If back button is pressed within 2 seconds, exit the app
+            super.onBackPressed()
+        } else {
+            // Show a toast message indicating the need to press back again to exit
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+            backButtonPressedTime = currentTime
+        }
+    }
+
 }
