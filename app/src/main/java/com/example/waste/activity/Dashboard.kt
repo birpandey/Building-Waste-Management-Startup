@@ -29,6 +29,8 @@ class Dashboard : AppCompatActivity() {
     private lateinit var networkBinding: NoInternetDialogBinding
     private val activeNetworkStateObserver =
         Observer<Boolean> { isConnected ->  setView(isConnected) }
+    private var backButtonPressedTime = 0L
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -114,4 +116,17 @@ class Dashboard : AppCompatActivity() {
         Toast.makeText(this,"You have been logged out",Toast.LENGTH_SHORT).show()
 
     }
+    override fun onBackPressed() {
+        val currentTime = System.currentTimeMillis()
+
+        if (currentTime - backButtonPressedTime < 2000) {
+            // If back button is pressed within 2 seconds, exit the app
+            super.onBackPressed()
+        } else {
+            // Show a toast message indicating the need to press back again to exit
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+            backButtonPressedTime = currentTime
+        }
+    }
+
 }
