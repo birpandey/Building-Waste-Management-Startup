@@ -2,6 +2,8 @@ package com.example.waste.application
 
 import android.app.Application
 import com.example.waste.utility.NetworkMonitoringUtil
+import com.example.waste.utility.SharedInit
+import com.example.waste.utility.SharedPreference
 import com.google.firebase.FirebaseApp
 
 class ThrowwApplication: Application() {
@@ -13,6 +15,7 @@ class ThrowwApplication: Application() {
         mNetworkMonitoringUtil!!.checkNetworkState()
         mNetworkMonitoringUtil!!.registerNetworkCallbackEvents()
         FirebaseApp.initializeApp(this)
+        SharedInit.init(this)
 
     }
 
