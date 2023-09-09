@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var networkBinding: NoInternetDialogBinding
     private val activeNetworkStateObserver =
         Observer<Boolean> { isConnected ->  setView(isConnected) }
-    private var getLocation:GetLocation?=null
     private fun setView(connected: Boolean) {
         if(!connected){
              val noNetworkIntent =  Intent(this, NetworkError::class.java)
@@ -25,8 +24,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         networkBinding = NoInternetDialogBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        getLocation= GetLocation.getInstance(this@MainActivity)
-        getLocation?.init()
         NetworkStateManager.instance?.networkConnectivityStatus
             ?.observe(this, activeNetworkStateObserver)
     }
