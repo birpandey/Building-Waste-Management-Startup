@@ -57,11 +57,11 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     implementation("androidx.annotation:annotation:1.6.0")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
-    implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+    implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     testImplementation("junit:junit:4.13.2")
-    implementation ("com.google.android.gms:play-services-location:21.0.1")
 
     //code picker
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

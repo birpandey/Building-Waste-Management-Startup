@@ -45,6 +45,7 @@ class SharedPreference : SharedInit() {
     fun setUserLatitude(latitude: Double) {
         prefs?.edit {
             putFloat(Keys.User.latitude, latitude.toFloat())
+            apply()
         }
     }
 
@@ -56,6 +57,7 @@ class SharedPreference : SharedInit() {
     fun setUserLongitude(longitude: Double) {
         prefs?.edit {
             putFloat(Keys.User.longitude, longitude.toFloat())
+            apply()
         }
     }
 

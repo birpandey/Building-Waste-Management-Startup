@@ -1,15 +1,21 @@
 package com.example.waste.activity
 
-import android.app.Activity
+import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -20,9 +26,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.waste.R
 import com.example.waste.databinding.ActivityDashboardBinding
 import com.example.waste.databinding.NoInternetDialogBinding
-import com.example.waste.utility.GetLocation
 import com.example.waste.utility.NetworkStateManager
 import com.example.waste.utility.SharedPreference
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.navigation.NavigationView
 
 class Dashboard : AppCompatActivity() {
@@ -31,9 +38,8 @@ class Dashboard : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var networkBinding: NoInternetDialogBinding
     private val activeNetworkStateObserver =
-        Observer<Boolean> { isConnected ->  setView(isConnected) }
+        Observer<Boolean> { isConnected -> setView(isConnected) }
     private var backButtonPressedTime = 0L
-    private var getLocation:GetLocation?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +51,6 @@ class Dashboard : AppCompatActivity() {
             ?.observe(this, activeNetworkStateObserver)
 
         setSupportActionBar(binding.appBarMain.toolbar)
-        getLocation= GetLocation.getInstance(this@Dashboard)
-        getLocation?.init()
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -76,11 +80,13 @@ class Dashboard : AppCompatActivity() {
             logout()
             true
         }
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        getLocation()
     }
 
     private fun setView(connected: Boolean) {
-        if(!connected){
-            val noNetworkIntent =  Intent(this, NetworkError::class.java)
+        if (!connected) {
+            val noNetworkIntent = Intent(this, NetworkError::class.java)
             startActivity(noNetworkIntent)
         }
     }
@@ -89,6 +95,7 @@ class Dashboard : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_main_drawer, menu)
         return true
@@ -106,7 +113,7 @@ class Dashboard : AppCompatActivity() {
         }
     }
 
-    private fun logout(){
+    private fun logout() {
         val sharedPreferences: SharedPreferences =
             getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
         val sharedEditor: SharedPreferences.Editor = sharedPreferences.edit()
@@ -117,9 +124,10 @@ class Dashboard : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
 
-        Toast.makeText(this,"You have been logged out",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "You have been logged out", Toast.LENGTH_SHORT).show()
 
     }
+
     override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
 
@@ -132,5 +140,78 @@ class Dashboard : AppCompatActivity() {
             backButtonPressedTime = currentTime
         }
     }
+
+    private val sharedPrefUtils: SharedPreference = SharedPreference()
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
+    private val permissionId = 2
+
+    @SuppressLint("MissingPermission", "SetTextI18n")
+    private fun getLocation() {
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
+                mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+                    val location: Location? = task.result
+                    if (location != null) {
+                        sharedPrefUtils.setUserLatitude(location.latitude)
+                        sharedPrefUtils.setUserLongitude(location.longitude)
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
+            }
+        } else {
+            requestPermissions()
+        }
+    }
+
+    private fun isLocationEnabled(): Boolean {
+        val locationManager: LocationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER
+        )
+    }
+
+    private fun checkPermissions(): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            return true
+        }
+        return false
+    }
+
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            permissionId
+        )
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == permissionId) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                getLocation()
+            }
+        }
+    }
+
 
 }
