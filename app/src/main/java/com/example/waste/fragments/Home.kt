@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.RecyclerView
 import com.example.waste.R
+import com.example.waste.adapter.BannerAdapter
 import com.example.waste.databinding.FragmentHomeBinding
+import com.example.waste.models.BannerItem
 
 class Home : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -21,7 +22,7 @@ class Home : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val rootView = binding.root
         initialize()
-        bannerWebView()
+        banner()
 
         return rootView
     }
@@ -44,10 +45,16 @@ class Home : Fragment() {
         }
     }
 
-    private fun bannerWebView() {
-        val imageUrl: ImageView = binding.imageView
-        val url =
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOZsOIBTyNND54nzK7qntwTYvOXjSz-m4yg&usqp=CAU"
-        Glide.with(this).load(url).into(imageUrl)
+    private fun banner() {
+        val bannerRecyclerView: RecyclerView = requireView().findViewById(R.id.banner_recycler_view)
+        val bannerItems = listOf(
+            BannerItem("https://media.istockphoto.com/id/1293353471/photo/recycling-symbol-abstract-concept-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=f-K28sQgRGVLHgFUqf4xsOttLR944FgNaTMsaiu7PfY="),
+            BannerItem("https://media.istockphoto.com/id/1293353502/photo/recycling-symbol-abstract-concept-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=ambvpy-DifkF4WYb6WJKadaXRsu7RB8e2TsFtxdXDvM="),
+            BannerItem("https://media.istockphoto.com/id/1273205088/photo/cyber-monday-abstract-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=3aDT6XZk66OfVjm5jmLODyTDAJutaUhNxW5FcBrvbh4=")
+            // Add more banner items as needed
+        )
+        val bannerAdapter = BannerAdapter(bannerItems)
+        bannerRecyclerView.adapter = bannerAdapter
+
     }
 }
