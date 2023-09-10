@@ -63,5 +63,5 @@
     <string name="submit">Submit</string>
     <string name="retry">Retry</string>
     <string name="successfully_registered">Successfully Registered</string>
-    <string name="welcome_name">Welcome! 1$s</string>
+    <string name="welcome_name">Welcome! %1$s</string>
 </resources>
