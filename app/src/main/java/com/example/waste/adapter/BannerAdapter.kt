@@ -35,7 +35,7 @@ class BannerAdapter(private val context: Context, private val bannerItems: List<
     }
 
     override fun getItemCount(): Int {
-        return 3 * bannerItems.size
+        return bannerItems.size * bannerItems.size
     }
 
     public fun listSize():Int{
