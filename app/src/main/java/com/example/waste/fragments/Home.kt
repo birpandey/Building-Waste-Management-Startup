@@ -46,7 +46,7 @@ class Home : Fragment() {
             findNavController(view).navigate(R.id.wasteItems)
         }
     }
-lateinit var bannerAdapter: BannerAdapter
+private lateinit var bannerAdapter: BannerAdapter
     private fun banner() {
 //        val bannerRecyclerView: RecyclerView = requireView().findViewById(R.id.banner_recycler_view)
         val bannerItems = listOf(
@@ -57,11 +57,11 @@ lateinit var bannerAdapter: BannerAdapter
         )
         bannerAdapter = BannerAdapter(requireContext(), bannerItems)
         binding.bannerRecyclerView.adapter = bannerAdapter
-        setAdapater()
+        setAdapter()
 
     }
 
-    fun setAdapater(){
+    private fun setAdapter(){
         val listSize = bannerAdapter.listSize()
         binding.bannerRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -69,10 +69,10 @@ lateinit var bannerAdapter: BannerAdapter
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                 val firstVisiblePosition = layoutManager.findFirstVisibleItemPosition()
                 if (firstVisiblePosition > listSize && firstVisiblePosition%listSize == 0 ) {
-                    // when the position reaches to the end of the list, we will scroll to begining of the list.
+                    // when the position reaches to the end of the list, we will scroll to beginning of the list.
                     recyclerView.scrollToPosition(listSize)
                 } else if (firstVisiblePosition == listSize - 1) {
-                    // when position reaches to the begining of list, then we need to scroll to list*2(end of list).
+                    // when position reaches to the beginning of list, then we need to scroll to list*2(end of list).
                     recyclerView.scrollToPosition(listSize*2)
                 }
             }
