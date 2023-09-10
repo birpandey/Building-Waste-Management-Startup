@@ -6,4 +6,7 @@
     <color name="pin_background">#eaeef4</color>
     <color name="edit_text_border_color">#e0e5ed</color>
     <color name="shadow">#d9d9d9</color>
+    <color name="card_back">#CDF3E5</color>
+    <color name="circal_back">#1D976C</color>
+
 </resources>

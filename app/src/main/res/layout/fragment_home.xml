@@ -51,7 +51,7 @@
                 tools:listitem="@layout/dash_board_list"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintTop_toTopOf="parent"
-                app:spanCount="2" />
+                app:spanCount="3" />
 
 
             <androidx.cardview.widget.CardView
