@@ -56,8 +56,6 @@ lateinit var bannerAdapter: BannerAdapter
             // Add more banner items as needed
         )
         bannerAdapter = BannerAdapter(requireContext(), bannerItems)
-       /* val pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(binding.bannerRecyclerView)*/
         binding.bannerRecyclerView.adapter = bannerAdapter
         setAdapater()
 
