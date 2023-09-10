@@ -61,8 +61,6 @@ lateinit var bannerAdapter: BannerAdapter
 
     }
 
-
-
     fun setAdapater(){
         val listSize = bannerAdapter.listSize()
         binding.bannerRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
