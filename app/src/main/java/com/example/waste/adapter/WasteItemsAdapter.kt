@@ -54,3 +54,7 @@ class WasteItemsAdapter(private val list: List<PriceWasteItemModel>) :
         val addItems: Button = itemView.findViewById(R.id.btn_add)
     }
 }
+
+
+
+// val productImage: ShapeableImageView = itemView.findViewById(R.id.e_images)
