@@ -1,5 +1,6 @@
 package com.example.waste.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,6 +39,7 @@ class OtpScreen : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun proceed() {
         binding.btnProceed.setOnClickListener {
             validateOTP()

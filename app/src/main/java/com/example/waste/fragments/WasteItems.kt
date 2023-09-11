@@ -33,11 +33,11 @@ class WasteItems : Fragment() {
         // Find the RecyclerView in your layout
         recyclerView = view.findViewById(R.id.recyclerViewWasteItems)
         val dummyData = listOf(
-            PriceWasteItemModel("10.00", "product_image_1", "Product 1"),
-            PriceWasteItemModel("15.00", "product_image_2", "Product 2"),
-            PriceWasteItemModel("8.50", "product_image_3", "Product 3"),
-            PriceWasteItemModel("12.99", "product_image_4", "Product 4"),
-            PriceWasteItemModel("5.75", "product_image_5", "Product 5")
+            PriceWasteItemModel("10.00", "product_image_1", "Product 1", addItems = "0"),
+            PriceWasteItemModel("15.00", "product_image_2", "Product 2", addItems = "0"),
+            PriceWasteItemModel("8.50", "product_image_3", "Product 3", addItems = "0"),
+            PriceWasteItemModel("12.99", "product_image_4", "Product 4", addItems = "0"),
+            PriceWasteItemModel("5.75", "product_image_5", "Product 5",addItems = "0")
         )
 
         // Create a list of waste items (you should populate this list with your data)
