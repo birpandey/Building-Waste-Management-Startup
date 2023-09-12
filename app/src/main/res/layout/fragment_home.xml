@@ -12,37 +12,61 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/top_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/dimen_200dp"
-            android:elevation="@dimen/_5dp"
             android:background="@drawable/dashbaord_back"
             app:layout_constraintTop_toTopOf="parent">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circular_img"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:civ_border_color="@color/yellow"
+                android:src="@drawable/img"
+                app:civ_border_width="3dp"/>
+
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/welcome"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/welcome_name"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:padding="@dimen/_10dp"
-                android:layout_marginStart="@dimen/dimen_50dp"
-                android:layout_marginEnd="@dimen/dimen_50dp"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:background="@drawable/text_back"
-                app:layout_constraintStart_toStartOf="@+id/top_layout"
-                app:layout_constraintEnd_toEndOf="@+id/top_layout"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/circular_img"
+                app:layout_constraintEnd_toEndOf="@+id/circular_img"
+                app:layout_constraintTop_toBottomOf="@+id/circular_img"
+                android:text="Test data "
+                android:layout_marginTop="@dimen/_10dp"
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceDisplaySmall"/>
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:elevation="@dimen/_5dp"
+            android:padding="@dimen/_10dp"
+            android:layout_marginStart="@dimen/dimen_50dp"
+            android:layout_marginEnd="@dimen/dimen_50dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:background="@drawable/text_back"
+            app:layout_constraintStart_toStartOf="@+id/top_layout"
+            app:layout_constraintEnd_toEndOf="@+id/top_layout"
+            app:layout_constraintTop_toBottomOf="@+id/top_layout"
+            app:layout_constraintBottom_toBottomOf="@+id/top_layout"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/banner_recycler_view"
             android:layout_width="match_parent"
@@ -50,8 +74,11 @@
             android:layout_marginTop="@dimen/_10dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/top_layout"
+            app:layout_constraintTop_toBottomOf="@id/welcome"
             tools:listitem="@layout/banner_item" />
+
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -257,6 +284,7 @@
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
