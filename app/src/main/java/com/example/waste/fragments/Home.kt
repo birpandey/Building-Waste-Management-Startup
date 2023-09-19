@@ -52,8 +52,8 @@ class Home : Fragment() {
             BannerItem("https://media.istockphoto.com/id/1293353502/photo/recycling-symbol-abstract-concept-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=ambvpy-DifkF4WYb6WJKadaXRsu7RB8e2TsFtxdXDvM="),
             BannerItem("https://media.istockphoto.com/id/1273205088/photo/cyber-monday-abstract-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=3aDT6XZk66OfVjm5jmLODyTDAJutaUhNxW5FcBrvbh4="),
             BannerItem("https://media.istockphoto.com/id/1293353471/photo/recycling-symbol-abstract-concept-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=f-K28sQgRGVLHgFUqf4xsOttLR944FgNaTMsaiu7PfY="),
-            BannerItem("https://media.istockphoto.com/id/1293353502/photo/recycling-symbol-abstract-concept-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=ambvpy-DifkF4WYb6WJKadaXRsu7RB8e2TsFtxdXDvM="),
-            BannerItem("https://media.istockphoto.com/id/1273205088/photo/cyber-monday-abstract-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=3aDT6XZk66OfVjm5jmLODyTDAJutaUhNxW5FcBrvbh4=")
+//            BannerItem("https://media.istockphoto.com/id/1293353502/photo/recycling-symbol-abstract-concept-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=ambvpy-DifkF4WYb6WJKadaXRsu7RB8e2TsFtxdXDvM="),
+//            BannerItem("https://media.istockphoto.com/id/1273205088/photo/cyber-monday-abstract-3d-illustration.jpg?s=1024x1024&w=is&k=20&c=3aDT6XZk66OfVjm5jmLODyTDAJutaUhNxW5FcBrvbh4=")
             // Add more banner items as needed
         )
         val adapter = DashBoardListAdapter(requireContext(), bannerItems)
