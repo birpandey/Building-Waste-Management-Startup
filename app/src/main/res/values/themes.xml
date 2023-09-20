@@ -5,6 +5,12 @@
          <item name="colorPrimary">@color/primaryColor</item>
     </style>
 
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorPrimaryVariant">@color/primaryColor</item>
+    </style>
+
     <style name="Theme.Waste" parent="Base.Theme.Waste" />
 
     <style name="Theme.Waste.NoActionBar">

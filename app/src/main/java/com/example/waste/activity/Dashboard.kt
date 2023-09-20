@@ -25,32 +25,37 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.waste.R
 import com.example.waste.databinding.ActivityDashboardBinding
+import com.example.waste.databinding.ContentMainBinding
 import com.example.waste.databinding.NoInternetDialogBinding
 import com.example.waste.utility.NetworkStateManager
 import com.example.waste.utility.SharedPreference
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class Dashboard : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityDashboardBinding
+//    private lateinit var binding: ActivityDashboardBinding
     private lateinit var networkBinding: NoInternetDialogBinding
     private val activeNetworkStateObserver =
         Observer<Boolean> { isConnected -> setView(isConnected) }
     private var backButtonPressedTime = 0L
+    lateinit var mainBinding:ContentMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDashboardBinding.inflate(layoutInflater)
+        mainBinding =  ContentMainBinding.inflate(layoutInflater)
+//        binding = ActivityDashboardBinding.inflate(layoutInflater)
         networkBinding = NoInternetDialogBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        setContentView(binding.root)
+        setContentView(mainBinding.root)
         NetworkStateManager.instance?.networkConnectivityStatus
             ?.observe(this, activeNetworkStateObserver)
 
-        setSupportActionBar(binding.appBarMain.toolbar)
+       /* setSupportActionBar(binding.appBarMain.toolbar)
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -79,7 +84,22 @@ class Dashboard : AppCompatActivity() {
         navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
             logout()
             true
-        }
+        }*/
+
+
+
+        val navView: BottomNavigationView = mainBinding.navView
+
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                 R.id.nav_orders, R.id.nav_address,R.id.nav_home, R.id.nav_support
+            )
+        )
+      //  setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         getLocation()
     }
@@ -128,7 +148,7 @@ class Dashboard : AppCompatActivity() {
 
     }
 
-    override fun onBackPressed() {
+   /* override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
 
         if (currentTime - backButtonPressedTime < 2000) {
@@ -139,7 +159,7 @@ class Dashboard : AppCompatActivity() {
             Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
             backButtonPressedTime = currentTime
         }
-    }
+    }*/
 
     private val sharedPrefUtils: SharedPreference = SharedPreference()
     private lateinit var mFusedLocationClient: FusedLocationProviderClient

@@ -31,7 +31,7 @@ RecyclerView.Adapter<DashBoardListAdapter.DashBoardViewHolder>() {
         val user = bannerItems[realPosition]
         // Load the image into the ImageView using a library like Picasso or Glide
         // For example, using Picasso:
-       // Glide.with(context).load(user.imageUrl).into(holder.binding.bannerImage)
+        Glide.with(context).load(user.imageUrl).into(holder.binding.bannerImage)
     }
 
     override fun getItemCount(): Int {
