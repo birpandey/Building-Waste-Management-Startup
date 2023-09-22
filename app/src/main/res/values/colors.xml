@@ -9,5 +9,6 @@
     <color name="card_back">#CDF3E5</color>
     <color name="circal_back">#1D976C</color>
     <color name="yellow">#FFC107</color>
+    <color name="light_gray">#FFC107</color>
 
 </resources>
