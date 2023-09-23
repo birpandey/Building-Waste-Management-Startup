@@ -18,4 +18,5 @@
     <dimen name="dimen_170dp">170dp</dimen>
     <dimen name="_16dp">16dp</dimen>
     <dimen name="_10sp">10sp</dimen>
+    <dimen name="_8dp">8dp</dimen>
 </resources>

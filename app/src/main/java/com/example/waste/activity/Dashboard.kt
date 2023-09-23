@@ -95,7 +95,7 @@ class Dashboard : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                 R.id.nav_orders, R.id.nav_address,R.id.nav_home, R.id.nav_support
+                 R.id.nav_orders, R.id.nav_address,R.id.nav_home, R.id.nav_support, R.id.nav_setting
             )
         )
       //  setupActionBarWithNavController(navController, appBarConfiguration)

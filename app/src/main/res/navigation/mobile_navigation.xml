@@ -46,4 +46,9 @@
         android:label="fragment_waste_items"
         tools:layout="@layout/fragment_waste_items" />
 
+        <fragment android:id="@+id/nav_setting"
+        android:name="com.example.waste.fragments.SettingFragment"
+        android:label="@string/setting"
+        tools:layout="@layout/fragment_setting"/>
+
 </navigation>

@@ -65,4 +65,5 @@
     <string name="successfully_registered">Successfully Registered</string>
     <string name="add">ADD</string>
     <string name="welcome_name">Welcome! %1$s</string>
+    <string name="versionName">Version %1$s</string>
 </resources>
