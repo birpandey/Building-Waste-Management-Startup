@@ -10,21 +10,16 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.waste.R
-import com.example.waste.databinding.ActivityDashboardBinding
 import com.example.waste.databinding.ContentMainBinding
 import com.example.waste.databinding.NoInternetDialogBinding
 import com.example.waste.utility.NetworkStateManager
@@ -32,13 +27,11 @@ import com.example.waste.utility.SharedPreference
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 
 
 class Dashboard : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-//    private lateinit var binding: ActivityDashboardBinding
     private lateinit var networkBinding: NoInternetDialogBinding
     private val activeNetworkStateObserver =
         Observer<Boolean> { isConnected -> setView(isConnected) }
@@ -49,45 +42,10 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         mainBinding =  ContentMainBinding.inflate(layoutInflater)
-//        binding = ActivityDashboardBinding.inflate(layoutInflater)
         networkBinding = NoInternetDialogBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
         setContentView(mainBinding.root)
         NetworkStateManager.instance?.networkConnectivityStatus
             ?.observe(this, activeNetworkStateObserver)
-
-       /* setSupportActionBar(binding.appBarMain.toolbar)
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-
-        // Setting up ActionBarDrawerToggle
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, binding.appBarMain.toolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home,
-                R.id.nav_orders,
-                R.id.nav_address,
-                R.id.nav_support,
-                R.id.nav_about,
-                R.id.nav_rating,
-                R.id.nav_logout
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
-            logout()
-            true
-        }*/
-
-
 
         val navView: BottomNavigationView = mainBinding.navView
 
@@ -99,7 +57,6 @@ class Dashboard : AppCompatActivity() {
                  R.id.nav_orders, R.id.nav_address,R.id.nav_home, R.id.nav_support, R.id.nav_setting
             )
         )
-      //  setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         getLocation()
@@ -144,7 +101,7 @@ class Dashboard : AppCompatActivity() {
 
     }
 
-   /* override fun onBackPressed() {
+    override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
 
         if (currentTime - backButtonPressedTime < 2000) {
@@ -155,7 +112,7 @@ class Dashboard : AppCompatActivity() {
             Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
             backButtonPressedTime = currentTime
         }
-    }*/
+    }
 
     private val sharedPrefUtils: SharedPreference = SharedPreference()
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
@@ -204,7 +161,6 @@ class Dashboard : AppCompatActivity() {
         }
         return false
     }
-
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(
             this,
@@ -215,7 +171,6 @@ class Dashboard : AppCompatActivity() {
             permissionId
         )
     }
-
     @SuppressLint("MissingSuperCall")
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -228,5 +183,4 @@ class Dashboard : AppCompatActivity() {
             }
         }
     }
-
 }

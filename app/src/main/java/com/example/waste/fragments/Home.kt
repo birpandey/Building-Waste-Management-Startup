@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.waste.R
 import com.example.waste.adapter.BannerAdapter
 import com.example.waste.adapter.DashBoardListAdapter
 import com.example.waste.databinding.FragmentHomeBinding
@@ -30,11 +32,15 @@ class Home : Fragment() {
     }
 
     private fun initialize() {
+        binding.welcome.text = String.format(
+            getString(R.string.welcome_name), "Bir Pandey"
+        )
+
         val categoryItem = listOf(
-            CategoryItems(listOf("tv","ac","pc"),"Electronic Waste"),
-            CategoryItems(listOf("plastic"),"Plastic Waste"),
-            CategoryItems(listOf("battery1","battery2"),"Battery Waste"),
-            CategoryItems(listOf("tyre"),"Tyre Waste"),
+            CategoryItems(listOf("tv", "ac", "pc"), "Electronic Waste"),
+            CategoryItems(listOf("plastic"), "Plastic Waste"),
+            CategoryItems(listOf("battery1", "battery2"), "Battery Waste"),
+            CategoryItems(listOf("tyre"), "Tyre Waste"),
             // Add more banner items as needed
         )
         val adapter = DashBoardListAdapter(requireContext(), categoryItem)
