@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.waste.activity.Dashboard
-import com.example.waste.activity.SuccessActivity
 import com.example.waste.databinding.FragmentFeedbackBinding
 
 class Feedback : Fragment() {

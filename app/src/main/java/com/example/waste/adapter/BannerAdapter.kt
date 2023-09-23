@@ -2,12 +2,9 @@ package com.example.waste.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.waste.R
 import com.example.waste.databinding.BannerItemBinding
 import com.example.waste.models.BannerItem
 
@@ -30,7 +27,6 @@ class BannerAdapter(private val context: Context, private val bannerItems: List<
         val realPosition = position%listSize()
         val user = bannerItems[realPosition]
         // Load the image into the ImageView using a library like Picasso or Glide
-        // For example, using Picasso:
         Glide.with(context).load(user.imageUrl).into(holder.binding.bannerImage)
     }
 
