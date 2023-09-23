@@ -34,6 +34,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
+
 class Dashboard : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -115,12 +116,7 @@ class Dashboard : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.activity_main_drawer, menu)
-        return true
-    }
-
+    
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.nav_logout -> {
@@ -232,6 +228,5 @@ class Dashboard : AppCompatActivity() {
             }
         }
     }
-
 
 }
