@@ -16,37 +16,21 @@
             android:id="@+id/top_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/dimen_170dp"
             android:background="@drawable/dashbaord_back"
+            android:minHeight="180dp"
             app:layout_constraintTop_toTopOf="parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circular_img"
-                android:layout_width="@dimen/dimen_100dp"
-                android:layout_height="@dimen/dimen_100dp"
-                android:layout_marginTop="@dimen/_10dp"
-                app:layout_constraintStart_toStartOf="parent"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_animation"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:civ_border_color="@color/yellow"
-                android:src="@drawable/img"
-                app:civ_border_width="3dp"/>
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/circular_img"
-                app:layout_constraintEnd_toEndOf="@+id/circular_img"
-                app:layout_constraintTop_toBottomOf="@+id/circular_img"
-                android:text="Test data "
-                android:layout_marginTop="@dimen/_10dp"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-               />
-
-
-<!--            android:textAppearance="?attr/textAppearanceLabelMedium"-->
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/main_lottie" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -55,20 +39,21 @@
             android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_name"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:elevation="@dimen/_5dp"
-            android:padding="@dimen/_10dp"
             android:layout_marginStart="@dimen/dimen_50dp"
             android:layout_marginEnd="@dimen/dimen_50dp"
-            android:textColor="@color/black"
-            android:textAlignment="center"
             android:background="@drawable/text_back"
-            app:layout_constraintStart_toStartOf="@+id/top_layout"
+            android:elevation="@dimen/_5dp"
+            android:padding="@dimen/_10dp"
+            android:text="@string/welcome_name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/top_layout"
             app:layout_constraintEnd_toEndOf="@+id/top_layout"
-            app:layout_constraintTop_toBottomOf="@+id/top_layout"
-            app:layout_constraintBottom_toBottomOf="@+id/top_layout"/>
+            app:layout_constraintStart_toStartOf="@+id/top_layout"
+            app:layout_constraintTop_toBottomOf="@+id/top_layout" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/banner_recycler_view"
             android:layout_width="match_parent"
@@ -78,8 +63,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/welcome"
             tools:listitem="@layout/banner_item" />
-
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
