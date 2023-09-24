@@ -20,7 +20,7 @@ class LocationUtils(private val context: Context) {
         placesClient = Places.createClient(context)
     }
 
-    fun getAddressFromLatLng(latLng: LatLng, onAddressFetched: (String) -> Unit) {
+    /*fun getAddressFromLatLng(latLng: LatLng, onAddressFetched: (String) -> Unit) {
         val placeId = "YOUR_PLACE_ID" // Replace with your actual place ID
 
         val placeFields = listOf(Field.ADDRESS)
@@ -39,5 +39,5 @@ class LocationUtils(private val context: Context) {
             // Handle any errors that occurred while fetching the address
             onAddressFetched("Error fetching address")
         }
-    }
+    }*/
 }
