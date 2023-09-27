@@ -65,6 +65,7 @@ class DashBoardListAdapter(
             }
 
             override fun onAnimationRepeat(animation: Animator) {
+                Log.d("","")
             }
         })
     }
@@ -73,7 +74,7 @@ class DashBoardListAdapter(
         return categoryItems.size
     }
 
-    fun listSize(): Int {
+    private fun listSize(): Int {
         return categoryItems.size // original list size
     }
 

@@ -27,7 +27,7 @@
                 app:layout_constraintStart_toStartOf="@+id/main_card"
                 app:layout_constraintTop_toTopOf="@+id/main_card"
                 app:lottie_autoPlay="true"
-                app:lottie_loop="true"
+
                 tools:ignore="MissingConstraints" />
 
 
